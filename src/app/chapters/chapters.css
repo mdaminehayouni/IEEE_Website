@@ -1,0 +1,94 @@
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  background: rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: min(280px, 38vw);
+  height: 170px;
+  padding: 34px 42px;
+  border-radius: 24px;
+  background:
+    linear-gradient(110deg, rgba(15, 23, 42, 0.72), rgba(11, 34, 72, 0.48)),
+    radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.13), transparent 40%);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(14px);
+  gap: 20px;
+}
+.box img {
+  width: 120px;
+}
+h1 {
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  filter: drop-shadow(0 0 5px rgba(0, 64, 255, 0.18)) drop-shadow(0 0 10px rgba(0, 64, 255, 0.18))
+    drop-shadow(0 0 20px rgba(0, 64, 255, 0.18)) drop-shadow(0 0 40px rgba(0, 64, 255, 0.18));
+}
+.about-section {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+  margin-bottom: 150px;
+}
+.about-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.box + .box img {
+  width: 200px;
+  margin-top: 20px;
+}
+.box a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 25px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: white;
+  text-decoration: none;
+  padding: 12px 30px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  .about-section {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .box {
+    width: min(280px, 82vw);
+  }
+}
+.box::before {
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+  left: 10px;
+  width: 3px;
+  content: '';
+  border-radius: 3px;
+  background: linear-gradient(180deg, #38bdf8, #2563eb);
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.65);
+}

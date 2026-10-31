@@ -1,0 +1,47 @@
+div {
+  border-radius: 25px;
+  color: white;
+  width: 90%;
+  padding-inline: 20px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+.navbar {
+  background: rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 25px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+img {
+  width: 250px;
+  margin-top: 15px;
+}
+.bloc {
+  margin: auto;
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+}
+#joinLink {
+  background: rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 25px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: white;
+  text-decoration: none;
+  padding-block: 17px;
+  padding-inline: 30px;
+  margin-top: 15px;
+  text-align: center;
+  width: 20%;
+}
+div a {
+  text-decoration: none;
+  color: white;
+}

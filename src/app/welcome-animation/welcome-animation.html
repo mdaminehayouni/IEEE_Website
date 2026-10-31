@@ -1,0 +1,19 @@
+<section class="intro">
+  <!-- WELCOME -->
+  <div class="word-container" *ngIf="currentText === 'welcome'" [class.reverse]="isReversing">
+    <h1 class="word">
+      <span class="letter" *ngFor="let letter of welcomeLetters; let i = index" [style.--i]="i">
+        {{ letter }}
+      </span>
+    </h1>
+  </div>
+
+  <!-- IEEE ISETR -->
+  <div class="word-container" *ngIf="currentText === 'ieee'">
+    <h1 class="word">
+      <span class="letter" *ngFor="let letter of ieeeLetters; let i = index" [style.--i]="i">
+        {{ letter }}
+      </span>
+    </h1>
+  </div>
+</section>
