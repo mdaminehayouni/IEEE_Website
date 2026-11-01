@@ -1,13 +1,160 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  color-scheme: dark;
+  --page-background:
+    radial-gradient(circle at 20% 30%, rgba(0, 128, 255, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.3), transparent 35%),
+    linear-gradient(135deg, #020617, #071938, #0b1d4d, #0b1f64);
+  --app-background:
+    radial-gradient(circle at 20% 30%, rgba(0, 64, 255, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.16), transparent 35%),
+    linear-gradient(135deg, #020617, #050816, #080b20, #020617);
+  --surface-background:
+    linear-gradient(110deg, rgba(15, 23, 42, 0.72), rgba(11, 34, 72, 0.48)),
+    radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.13), transparent 40%);
+  --intro-surface:
+    linear-gradient(115deg, rgba(15, 23, 42, 0.76), rgba(15, 23, 42, 0.32)),
+    radial-gradient(circle at 0% 50%, rgba(56, 189, 248, 0.16), transparent 48%);
+  --surface-background-subtle: rgba(15, 23, 42, 0.35);
+  --surface-background-raised: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.48));
+  --event-card-background:
+    linear-gradient(115deg, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.58)),
+    radial-gradient(circle at 0% 100%, rgba(56, 189, 248, 0.12), transparent 48%);
+  --surface-border: rgba(255, 255, 255, 0.12);
+  --surface-border-accent: rgba(125, 211, 252, 0.24);
+  --image-border: rgba(255, 255, 255, 0.08);
+  --surface-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.12);
+  --description-shadow:
+    0 18px 50px rgba(2, 8, 23, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.1);
+  --card-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.09),
+    0 12px 28px rgba(2, 8, 23, 0.22);
+  --event-card-shadow:
+    0 18px 50px rgba(2, 8, 23, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.08);
+  --card-hover-shadow:
+    0 18px 34px rgba(2, 8, 23, 0.34),
+    0 0 24px rgba(14, 165, 233, 0.12);
+  --text-primary: #fff;
+  --text-secondary: #dbeafe;
+  --body-copy: #cbd5e1;
+  --metric-text: #e0f2fe;
+  --text-muted: #94a3b8;
+  --accent: #7dd3fc;
+  --accent-strong: #60a5fa;
+  --accent-gradient: linear-gradient(180deg, #38bdf8, #2563eb);
+  --accent-border-hover: rgba(125, 211, 252, 0.65);
+  --heading-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 40px rgba(59, 130, 246, 0.25);
+  --events-heading-shadow: 0 0 24px rgba(59, 130, 246, 0.3);
+  --section-heading-filter:
+    drop-shadow(0 0 5px rgba(0, 64, 255, 0.18))
+    drop-shadow(0 0 10px rgba(0, 64, 255, 0.18))
+    drop-shadow(0 0 20px rgba(0, 64, 255, 0.18))
+    drop-shadow(0 0 40px rgba(0, 64, 255, 0.18));
+  --panel-glow: radial-gradient(circle, rgba(56, 189, 248, 0.3), rgba(14, 165, 233, 0.08) 42%, transparent 70%);
+  --panel-scan:
+    linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(125, 211, 252, 0.02) 40%,
+      rgba(125, 211, 252, 0.18) 50%,
+      rgba(56, 189, 248, 0.04) 60%,
+      transparent 70%
+    );
+  --metric-glow: linear-gradient(135deg, rgba(56, 189, 248, 0.16), transparent 45%);
+  --card-glow: rgba(14, 165, 233, 0.12);
+  --accent-bar-shadow: 0 0 18px rgba(56, 189, 248, 0.65);
+  --network-line: rgba(96, 165, 250, 0.25);
+  --network-particle: rgba(147, 197, 253, 0.8);
+  --network-glow: rgba(59, 130, 246, 0.8);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --page-background:
+    radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.13), transparent 36%),
+    radial-gradient(circle at 80% 70%, rgba(129, 140, 248, 0.12), transparent 36%),
+    linear-gradient(135deg, #f8fbff, #edf5ff 55%, #f5f3ff);
+  --app-background:
+    radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.1), transparent 36%),
+    radial-gradient(circle at 80% 70%, rgba(129, 140, 248, 0.1), transparent 36%),
+    linear-gradient(135deg, #f8fbff, #f1f6ff 55%, #f6f5ff);
+  --surface-background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.94), rgba(239, 246, 255, 0.88)),
+    radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.12), transparent 45%);
+  --intro-surface:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.94), rgba(239, 246, 255, 0.88)),
+    radial-gradient(circle at 0% 50%, rgba(56, 189, 248, 0.1), transparent 48%);
+  --surface-background-subtle: rgba(255, 255, 255, 0.78);
+  --surface-background-raised: linear-gradient(145deg, #fff, #eff6ff);
+  --event-card-background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.9)),
+    radial-gradient(circle at 0% 100%, rgba(56, 189, 248, 0.1), transparent 48%);
+  --surface-border: rgba(51, 65, 85, 0.16);
+  --surface-border-accent: rgba(37, 99, 235, 0.22);
+  --image-border: rgba(51, 65, 85, 0.16);
+  --surface-shadow:
+    0 24px 70px rgba(30, 64, 120, 0.12),
+    inset 0 1px rgba(255, 255, 255, 0.9);
+  --description-shadow:
+    0 18px 50px rgba(30, 64, 120, 0.12),
+    inset 0 1px rgba(255, 255, 255, 0.9);
+  --card-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.9),
+    0 12px 28px rgba(30, 64, 120, 0.1);
+  --event-card-shadow:
+    0 18px 50px rgba(30, 64, 120, 0.12),
+    inset 0 1px rgba(255, 255, 255, 0.9);
+  --card-hover-shadow:
+    0 18px 34px rgba(30, 64, 120, 0.16),
+    0 0 24px rgba(14, 165, 233, 0.1);
+  --text-primary: #172033;
+  --text-secondary: #334155;
+  --body-copy: #334155;
+  --metric-text: #334155;
+  --text-muted: #64748b;
+  --accent: #0369a1;
+  --accent-strong: #2563eb;
+  --accent-gradient: linear-gradient(180deg, #0ea5e9, #2563eb);
+  --accent-border-hover: rgba(37, 99, 235, 0.5);
+  --heading-shadow: 0 0 24px rgba(37, 99, 235, 0.12);
+  --events-heading-shadow: 0 0 24px rgba(37, 99, 235, 0.12);
+  --section-heading-filter:
+    drop-shadow(0 0 5px rgba(37, 99, 235, 0.1))
+    drop-shadow(0 0 10px rgba(37, 99, 235, 0.1))
+    drop-shadow(0 0 20px rgba(37, 99, 235, 0.1))
+    drop-shadow(0 0 40px rgba(37, 99, 235, 0.1));
+  --panel-glow: radial-gradient(circle, rgba(56, 189, 248, 0.16), rgba(14, 165, 233, 0.04) 42%, transparent 70%);
+  --panel-scan:
+    linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(37, 99, 235, 0.015) 40%,
+      rgba(37, 99, 235, 0.08) 50%,
+      rgba(56, 189, 248, 0.025) 60%,
+      transparent 70%
+    );
+  --metric-glow: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent 45%);
+  --card-glow: rgba(14, 165, 233, 0.08);
+  --accent-bar-shadow: 0 0 18px rgba(37, 99, 235, 0.26);
+  --network-line: rgba(37, 99, 235, 0.13);
+  --network-particle: rgba(37, 99, 235, 0.4);
+  --network-glow: rgba(37, 99, 235, 0.28);
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
-  background: #020617;
+  background: var(--page-background);
+  color: var(--text-primary);
   scroll-behavior: smooth;
 }
+
 app-root {
   display: block;
   width: 100%;

@@ -1,12 +1,11 @@
 h1 {
   margin-top: 110px;
-  color: white;
+  color: var(--text-primary);
   text-align: center;
   font-size: 30px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  filter: drop-shadow(0 0 5px rgba(0, 64, 255, 0.18)) drop-shadow(0 0 10px rgba(0, 64, 255, 0.18))
-    drop-shadow(0 0 20px rgba(0, 64, 255, 0.18)) drop-shadow(0 0 40px rgba(0, 64, 255, 0.18));
+  filter: var(--section-heading-filter);
 }
 .box {
   position: relative;
@@ -15,21 +14,17 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: var(--text-primary);
   z-index: 20;
-  background: rgba(15, 23, 42, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--surface-background-subtle);
+  border: 1px solid var(--surface-border);
   width: min(1120px, 88%);
   height: 200px;
   padding: 34px 42px;
   border-radius: 24px;
   margin: 28px auto 70px;
-  background:
-    linear-gradient(110deg, rgba(15, 23, 42, 0.72), rgba(11, 34, 72, 0.48)),
-    radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.13), transparent 40%);
-  box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.25),
-    inset 0 1px rgba(255, 255, 255, 0.12);
+  background: var(--surface-background);
+  box-shadow: var(--surface-shadow);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -59,12 +54,7 @@ h1 {
   top: -190px;
   right: -55px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(56, 189, 248, 0.3),
-    rgba(14, 165, 233, 0.08) 42%,
-    transparent 70%
-  );
+  background: var(--panel-glow);
   filter: blur(8px);
   animation: panel-glow 9s ease-in-out infinite alternate;
 }
@@ -73,14 +63,7 @@ h1 {
   z-index: 0;
   inset: 0;
   opacity: 0.8;
-  background: linear-gradient(
-    110deg,
-    transparent 30%,
-    rgba(125, 211, 252, 0.02) 40%,
-    rgba(125, 211, 252, 0.18) 50%,
-    rgba(56, 189, 248, 0.04) 60%,
-    transparent 70%
-  );
+  background: var(--panel-scan);
   background-size: 220% 100%;
   animation: panel-scan 5s linear infinite;
 }
@@ -103,7 +86,7 @@ h1 {
 .desc {
   width: 45%;
   margin-left: 8px;
-  color: #cbd5e1;
+  color: var(--body-copy);
   font-size: 1.05rem;
   line-height: 1.8;
 }
@@ -119,13 +102,11 @@ h1 {
   width: 148px;
   min-height: 158px;
   padding: 24px 14px;
-  border: 1px solid rgba(125, 211, 252, 0.24);
+  border: 1px solid var(--surface-border-accent);
   border-radius: 16px;
-  background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.48));
-  color: #e0f2fe;
-  box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.09),
-    0 12px 28px rgba(2, 8, 23, 0.22);
+  background: var(--surface-background-raised);
+  color: var(--metric-text);
+  box-shadow: var(--card-shadow);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,15 +123,14 @@ h1 {
   z-index: -1;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), transparent 45%);
+  background: var(--metric-glow);
   opacity: 0.7;
 }
 .m:hover {
   transform: translateY(-6px);
-  border-color: rgba(125, 211, 252, 0.65);
+  border-color: var(--accent-border-hover);
   box-shadow:
-    0 18px 34px rgba(2, 8, 23, 0.34),
-    0 0 24px rgba(14, 165, 233, 0.12);
+    var(--card-hover-shadow);
 }
 .m p {
   margin: 0;
@@ -163,7 +143,7 @@ h1 {
   letter-spacing: 0.12em;
 }
 .num {
-  color: #7dd3fc;
+  color: var(--accent);
   font-size: 2.35rem;
   line-height: 1;
   letter-spacing: -0.02em;

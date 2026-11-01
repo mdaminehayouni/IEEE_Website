@@ -9,6 +9,22 @@
     <title>IeeeIsetr</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (() => {
+        let theme;
+        try {
+          theme = localStorage.getItem('ieee-isetr-theme');
+        } catch (error) {
+          console.error('Could not read the saved theme preference.', error);
+        }
+
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>

@@ -1,0 +1,42 @@
+[
+  {
+    "image": "assets/images/events/Hackatoon.jpg",
+    "title": "Hackatoon",
+    "description": "A collaborative coding event where participants turn ideas into prototypes."
+  },
+  {
+    "image": "assets/images/events/TSYP13.jpg",
+    "title": "TSYP 13",
+    "description": "A look back at our IEEE community taking part in TSYP 13."
+  },
+  {
+    "image": "assets/images/events/TSYP13(1).jpg",
+    "title": "TSYP 13 Highlights",
+    "description": "Shared moments and highlights from the TSYP 13 experience."
+  },
+  {
+    "image": "assets/images/events/TSYP13 booth.jpeg",
+    "title": "TSYP 13 Booth",
+    "description": "Meet our members and discover the IEEE ISET Rades booth at TSYP 13."
+  },
+  {
+    "image": "assets/images/events/Takwira.jpg",
+    "title": "Takwira",
+    "description": "A friendly football event bringing students together through teamwork."
+  },
+  {
+    "image": "assets/images/events/TechX.jpg",
+    "title": "TechX",
+    "description": "Explore technology, exchange ideas, and connect with the IEEE community."
+  },
+  {
+    "image": "assets/images/events/Treasure Hunt.jpg",
+    "title": "Treasure Hunt",
+    "description": "Put your curiosity and teamwork to the test in our Treasure Hunt."
+  },
+  {
+    "image": "assets/images/events/workshopFluttter.jpg",
+    "title": "Flutter Workshop",
+    "description": "A hands-on introduction to Flutter and cross-platform app development."
+  }
+]

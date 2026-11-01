@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Navbar } from './components/navbar/navbar';
 import { WelcomeAnimationComponent } from './welcome-animation/welcome-animation';
 import { Events } from './events/events';
+import { EventCards } from './event-cards/event-cards';
 import { Numbers } from './numbers/numbers';
 import { Chapters } from './chapters/chapters';
 import { ScrollFadeInDirective } from './directives/scroll-fade-in.directive';
@@ -11,7 +12,15 @@ import { ScrollFadeInDirective } from './directives/scroll-fade-in.directive';
   standalone: true,
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
-  imports: [Navbar, WelcomeAnimationComponent, Events, Numbers, Chapters, ScrollFadeInDirective],
+  imports: [
+    Navbar,
+    WelcomeAnimationComponent,
+    Events,
+    EventCards,
+    Numbers,
+    Chapters,
+    ScrollFadeInDirective,
+  ],
 })
 export class App implements AfterViewInit {
   @ViewChild('networkCanvas')
@@ -20,6 +29,14 @@ export class App implements AfterViewInit {
   ngAfterViewInit(): void {
     const canvas = this.canvas.nativeElement;
     const ctx = canvas.getContext('2d')!;
+    let networkColors = this.getNetworkColors();
+    const themeObserver = new MutationObserver(() => {
+      networkColors = this.getNetworkColors();
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
 
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
@@ -110,7 +127,7 @@ export class App implements AfterViewInit {
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
 
-            ctx.strokeStyle = `rgba(96, 165, 250, ${opacity * 0.25})`;
+            ctx.strokeStyle = networkColors.line.replace('ALPHA', `${opacity * 0.25}`);
 
             ctx.lineWidth = 0.7;
 
@@ -125,10 +142,10 @@ export class App implements AfterViewInit {
 
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
 
-        ctx.fillStyle = 'rgba(147, 197, 253, 0.8)';
+        ctx.fillStyle = networkColors.particle;
 
         ctx.shadowBlur = 8;
-        ctx.shadowColor = 'rgba(59, 130, 246, 0.8)';
+        ctx.shadowColor = networkColors.glow;
 
         ctx.fill();
       }
@@ -139,6 +156,15 @@ export class App implements AfterViewInit {
     };
 
     animate();
+  }
+
+  private getNetworkColors(): { line: string; particle: string; glow: string } {
+    const styles = getComputedStyle(document.documentElement);
+    return {
+      line: styles.getPropertyValue('--network-line').trim().replace(/[\d.]+\)$/, 'ALPHA)'),
+      particle: styles.getPropertyValue('--network-particle').trim(),
+      glow: styles.getPropertyValue('--network-glow').trim(),
+    };
   }
 }
 

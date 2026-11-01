@@ -1,1 +1,20 @@
-<p>event-cards works!</p>
+<section class="events-section" aria-labelledby="events-title">
+  <h2 id="events-title">Events</h2>
+  @if (loading) {
+    <p class="events-status" role="status">Loading events...</p>
+  } @else if (errorMessage) {
+    <p class="events-status" role="alert">{{ errorMessage }}</p>
+  } @else {
+    <div class="events-grid">
+      @for (event of events; track event.title; let index = $index) {
+        <article class="event-card" [style.animation-delay.ms]="index * 90">
+          <img class="event-card__image" [src]="event.image" [alt]="event.title" />
+          <div class="event-card__content">
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

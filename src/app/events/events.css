@@ -1,10 +1,9 @@
 h1 {
   margin-top: 10px;
-  color: white;
+  color: var(--text-primary);
   text-align: center;
   font-size: 30px;
-  filter: drop-shadow(0 0 5px rgba(0, 64, 255, 0.18)) drop-shadow(0 0 10px rgba(0, 64, 255, 0.18))
-    drop-shadow(0 0 20px rgba(0, 64, 255, 0.18)) drop-shadow(0 0 40px rgba(0, 64, 255, 0.18));
+  filter: var(--section-heading-filter);
 }
 
 .cis-05,
@@ -71,7 +70,7 @@ h1 {
   aspect-ratio: 3 / 2;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--image-border);
   transition: transform 0.4s ease;
 }
 

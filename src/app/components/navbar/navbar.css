@@ -1,17 +1,24 @@
-div {
+.bloc {
   border-radius: 25px;
-  color: white;
-  width: 90%;
+  color: var(--text-primary);
+  width: 80%;
   padding-inline: 20px;
   margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 70px;
+  gap: clamp(16px, 2vw, 24px);
 }
 .navbar {
-  background: rgba(15, 23, 42, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  width: auto;
+  padding-inline: 20px;
+  background: var(--surface-background-subtle);
+  border: 1px solid var(--surface-border);
   border-radius: 25px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -28,20 +35,96 @@ img {
   align-items: center;
 }
 #joinLink {
-  background: rgba(15, 23, 42, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--surface-background-subtle);
+  border: 1px solid var(--surface-border);
   border-radius: 25px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  color: white;
+  color: var(--text-primary);
   text-decoration: none;
   padding-block: 17px;
   padding-inline: 30px;
-  margin-top: 15px;
+  margin-top: 0;
   text-align: center;
-  width: 20%;
+  width: auto;
+  white-space: nowrap;
 }
-div a {
+
+.navbar a {
   text-decoration: none;
-  color: white;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.navbar-logo {
+  display: block;
+}
+
+:host-context(html[data-theme='light']) .navbar-logo {
+  filter: brightness(0.75) saturate(1.15);
+  mix-blend-mode: multiply;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--surface-border);
+  border-radius: 50%;
+  background: var(--surface-background-subtle);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-border-hover);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+@media (max-width: 800px) {
+  .bloc {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .navbar {
+    width: auto;
+    flex: 1 1 100%;
+    order: 1;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  #joinLink {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle {
+    transition: none;
+  }
 }

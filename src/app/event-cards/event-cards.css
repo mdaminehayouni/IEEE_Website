@@ -1,0 +1,116 @@
+:host {
+  display: block;
+}
+
+.events-section {
+  position: relative;
+  z-index: 2;
+  width: min(1120px, calc(100% - 2rem));
+  margin: clamp(4rem, 8vw, 7rem) auto;
+  color: var(--text-primary);
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.events-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.events-section h2 {
+  color: var(--text-primary);
+  text-align: center;
+  font-size: 40px;
+  filter: var(--section-heading-filter);
+}
+
+.events-status {
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: clamp(1rem, 2.4vw, 1.5rem);
+}
+
+.event-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--surface-border-accent);
+  border-radius: 16px;
+  background: var(--event-card-background);
+  box-shadow: var(--event-card-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-border-hover);
+}
+
+.event-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.event-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.25rem;
+}
+
+.event-card h3 {
+  min-height: 2.7em;
+  margin: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.event-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .event-card {
+    transition: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 540px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
