@@ -85,6 +85,7 @@ h1 {
   display: block;
 }
 .about-section {
+  margin-top: 150px;
   opacity: 0;
   transform: translateY(50px);
   transition:

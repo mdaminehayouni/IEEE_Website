@@ -1,0 +1,20 @@
+[
+  {
+    "title": "CSTAM 2026",
+    "description": "Join us for a day of technical talks, hands-on workshops, and conversations with the IEEE community.",
+    "logo": "assets/images/UpcomingEvents/CSTAM.png",
+    "date": "2026-11-14",
+    "time": "",
+    "registerLink": "",
+    "isActivated": false
+  },
+  {
+    "title": "Odyssey Hack 2026",
+    "description": "Build, collaborate, and bring fresh ideas to life during our student-focused hackathon.",
+    "logo": "assets/images/UpcomingEvents/OdysseyHack.png",
+    "date": "2026-11-14",
+    "time": "",
+    "registerLink": "",
+    "isActivated": true
+  }
+]

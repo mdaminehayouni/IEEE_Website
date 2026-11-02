@@ -1,8 +1,9 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { UpcomingEvents } from '../upcoming-events/upcoming-events';
 
 @Component({
   selector: 'app-events',
-  imports: [],
+  imports: [UpcomingEvents],
   templateUrl: './events.html',
   styleUrls: ['./events.css'],
 })

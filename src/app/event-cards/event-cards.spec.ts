@@ -7,11 +7,16 @@ describe('EventCards', () => {
 
   beforeEach(async () => {
     localStorage.removeItem(EVENTS_STORAGE_KEY);
+    localStorage.removeItem(`${EVENTS_STORAGE_KEY}:sync-state`);
     await TestBed.configureTestingModule({
       imports: [EventCards],
     }).compileComponents();
 
     fixture = TestBed.createComponent(EventCards);
+  });
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
   it('should create', () => {
@@ -41,17 +46,19 @@ describe('EventCards', () => {
     expect(cards[0].querySelector('p')?.textContent?.trim()).toBe('A collaborative coding event.');
   });
 
-  it('should use events already saved in local storage', async () => {
+  it('should reconcile saved events with the assets JSON', async () => {
     const eventJson =
       '[{"image":"assets/images/events/TechX.jpg","title":"TechX","description":"Technology event."}]';
     localStorage.setItem(EVENTS_STORAGE_KEY, eventJson);
-    const fetchSpy = spyOn(window, 'fetch');
+    const fetchSpy = spyOn(window, 'fetch').and.resolveTo(
+      new Response(eventJson, { status: 200, headers: { 'Content-Type': 'application/json' } }),
+    );
 
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();
 
-    expect(fetchSpy).not.toHaveBeenCalled();
+    expect(fetchSpy).toHaveBeenCalledWith('assets/events.json', { cache: 'no-store' });
     expect(fixture.nativeElement.querySelector('.event-card h3')?.textContent?.trim()).toBe('TechX');
   });
 });

@@ -1,0 +1,58 @@
+<section class="upcoming-section" aria-labelledby="upcoming-title">
+  <h2 id="upcoming-title">Upcoming Events</h2>
+  @if (events.length === 0) {
+    <p class="upcoming-empty" role="status">No upcoming events yet.</p>
+  } @else {
+    <div class="upcoming-grid">
+      @for (event of events; track $index) {
+        <article class="upcoming-card">
+          <div class="upcoming-card__logo">
+            @if (event.logo && !event.logoFailed) {
+              <img
+                [src]="event.logo"
+                [alt]="event.title + ' logo'"
+                (error)="event.logoFailed = true"
+              />
+            } @else {
+              <span class="upcoming-card__placeholder" role="img" [attr.aria-label]="event.title">
+                IEEE
+              </span>
+            }
+          </div>
+          <div class="upcoming-card__content">
+            <h3>{{ event.title }}</h3>
+            <p class="upcoming-card__description">{{ event.description }}</p>
+            <p class="upcoming-card__date">
+              <span class="upcoming-card__label">Date</span>
+              <time [attr.datetime]="event.date">{{ event.dateValue | date: 'longDate' }}</time>
+            </p>
+            @if (event.time) {
+              <p class="upcoming-card__date">
+                <span class="upcoming-card__label">Time</span>
+                <time [attr.datetime]="event.time">{{ event.time }}</time>
+              </p>
+            }
+            @if (event.countdown; as countdown) {
+              <div class="upcoming-card__countdown" aria-live="off">
+                <span><strong>{{ countdown.days }}</strong> days</span>
+                <span><strong>{{ countdown.hours }}</strong> hours</span>
+                <span><strong>{{ countdown.minutes }}</strong> minutes</span>
+                <span><strong>{{ countdown.seconds }}</strong> seconds</span>
+              </div>
+            } @else {
+              <p class="upcoming-card__started" role="status">Event started</p>
+            }
+            <button
+              class="upcoming-card__register"
+              type="button"
+              [disabled]="!event.isActivated"
+              (click)="register(event)"
+            >
+              Register
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>
